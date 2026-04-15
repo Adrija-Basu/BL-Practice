@@ -1,0 +1,7 @@
+def calculate_sum(x:int,y:int)->int:
+    return x+y
+total_sum=10
+bonus_points=20
+print(f"Data Type of total_sum is: {type(total_sum)}and \n"+f"bonus_points is{type(bonus_points)}")
+final_points=calculate_sum(total_sum, bonus_points)
+print(f"Final Score is:{final_points}")
