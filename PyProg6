@@ -1,0 +1,12 @@
+def calculate_sum(x:int,y:int)->int:
+    return x+y
+try:
+    total_sum=int(input('Enter the total sum: '))
+    bonus_points=int(input('Enter the bonus points: '))
+    print(f"Data Type of total_sum is: {type(total_sum)} and \n"+f"bonus_points is {type(bonus_points)}")
+    final_points=calculate_sum(total_sum, bonus_points)
+    print(f"Final Score is:{final_points}")
+except ValueError as err:
+    print(f"Oops! Got an error: {err},\n that was no valid output.Please try again")
+except:
+    print("An unexpected error occurred. Please try again.")
