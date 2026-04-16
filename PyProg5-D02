@@ -1,0 +1,76 @@
+# Constants
+SCHOOL_NAME = "New School Of Learning"
+CLASS_NAME = "Class XI"
+MAX_MARKS = 50
+NUM_STUDENTS = 3
+
+# Initialize totals
+total_phy = total_chem = total_math = 0
+overall_total = 0
+
+students = []
+
+# Input for 3 students
+for i in range(NUM_STUDENTS):
+    print(f"\nEnter details for Student {i+1}")
+    
+    name = input("Enter Student Name: ")
+    phy = float(input("Physics Marks: "))
+    chem = float(input("Chemistry Marks: "))
+    math = float(input("Mathematics Marks: "))
+    
+    total = phy + chem + math
+    percentage = (total / (3 * MAX_MARKS)) * 100
+    
+    # Store data
+    students.append((name, phy, chem, math, total, percentage))
+    
+    # Add to class totals
+    total_phy += phy
+    total_chem += chem
+    total_math += math
+    overall_total += total
+
+# Display Results
+print("\n" + "-" * 74)
+print(f"{SCHOOL_NAME:^74}")
+print(f"{CLASS_NAME:^74}")
+print("-" * 74)
+
+for student in students:
+    name, phy, chem, math, total, percentage = student
+    
+    print(f"\nStudent Name: {name}")
+    print("-" * 74)
+    print(f"{'Subject':^20}{'Marks':^10}{'%':^10}")
+    print("-" * 74)
+    
+    print(f"{'Physics':^20}{phy:^10}{(phy/MAX_MARKS)*100:^10.2f}")
+    print(f"{'Chemistry':^20}{chem:^10}{(chem/MAX_MARKS)*100:^10.2f}")
+    print(f"{'Mathematics':^20}{math:^10}{(math/MAX_MARKS)*100:^10.2f}")
+    
+    print("-" * 74)
+    print(f"{'Total':^20}{total:^10}{percentage:^10.2f}")
+    print("-" * 74)
+
+# Class Summary
+avg_phy = total_phy / NUM_STUDENTS
+avg_chem = total_chem / NUM_STUDENTS
+avg_math = total_math / NUM_STUDENTS
+
+overall_avg = overall_total / (NUM_STUDENTS * 3 * MAX_MARKS) * 100
+
+print("\n" + "=" * 74)
+print(f"{'CLASS SUMMARY':^74}")
+print("=" * 74)
+
+print(f"{'Subject':^20}{'Average Marks':^20}{'Average %':^20}")
+print("-" * 74)
+
+print(f"{'Physics':^20}{avg_phy:^20.2f}{(avg_phy/MAX_MARKS)*100:^20.2f}")
+print(f"{'Chemistry':^20}{avg_chem:^20.2f}{(avg_chem/MAX_MARKS)*100:^20.2f}")
+print(f"{'Mathematics':^20}{avg_math:^20.2f}{(avg_math/MAX_MARKS)*100:^20.2f}")
+
+print("-" * 74)
+print(f"{'Overall %':^40}{overall_avg:^20.2f}")
+print("=" * 74)
