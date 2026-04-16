@@ -1,0 +1,73 @@
+# PROG 4.1: EMI Calculator Non Modular
+
+# Step 1: Take user input for Principle, Rate of Interest and Time in years
+principle_entered = input("Enter the Principle Amount: ")
+roi_entered = input("Enter the Rate of Interest: ")
+years_entered = input("Enter the Time in years: ")
+
+# Step 2: Validate input and convert
+principle = int(principle_entered) if principle_entered.isdigit() else None
+roi = float(roi_entered) if roi_entered.replace('.', '', 1).isdigit() else None
+years = int(years_entered) if years_entered.isdigit() else None
+
+# Step 3: Check validity
+if (principle is not None and roi is not None and years is not None and
+    principle > 0 and roi > 0 and years > 0):
+
+    # Step 4: Monthly interest rate
+    interest_per_month = round(roi / (12 * 100), 4)
+
+    # Step 5: Number of months
+    months = years * 12
+
+    # Step 6: EMI Calculation
+    emi = round(
+        principle * interest_per_month * (1 + interest_per_month) ** months /
+        ((1 + interest_per_month) ** months - 1), 2
+    )
+
+    # Step 7: Initialize balance
+    balance = principle
+
+    # Step 8: Header
+    print("-" * 65)
+    print(f"| {'Month':^8} | {'EMI':^10} | {'Interest':^10} | {'Principal':^10} | {'Balance':^10} |")
+    print("-" * 65)
+
+    # Step 9: Initialize totals
+    total_month = total_emi = total_interest = total_principal = 0.0
+
+    # Step 10: Loop through months
+    for month in range(1, months + 1):
+
+        # Step 11: Interest for month
+        interest = round(balance * interest_per_month, 2)
+
+        # Step 12: Principal for month
+        principal = round(emi - interest, 2)
+
+        # Step 13: Remaining balance
+        balance = round(balance - principal, 2)
+
+        # Step 14: Adjustment if balance goes below 0
+        if balance < 0:
+            principal = round(principal + balance, 2)
+            emi = round(principal + interest, 2)
+            balance = 0
+
+        # Step 15: Totals
+        total_month += 1
+        total_emi += emi
+        total_interest += interest
+        total_principal += principal
+
+        # Step 16: Print row
+        print(f"| {month:^8} | {emi:^10.2f} | {interest:^10.2f} | {principal:^10.2f} | {balance:^10.2f} |")
+
+    # Step 17: Footer
+    print("-" * 65)
+    print(f"| {'Total':^8} | {total_emi:^10.2f} | {total_interest:^10.2f} | {total_principal:^10.2f} | {'':^10} |")
+    print("-" * 65)
+
+else:
+    print(f"Invalid Input: {principle_entered}, {roi_entered}, {years_entered} are not valid numbers")
