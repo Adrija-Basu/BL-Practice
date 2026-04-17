@@ -1,0 +1,18 @@
+# Recursive function to calculate factorial
+def factorial(n):
+    # Base case
+    if n == 0 or n == 1:
+        return 1
+    
+    # Recursive case
+    return n * factorial(n - 1)
+
+
+# Input
+num = int(input("Enter the number to find the factorial : "))
+
+# Function call
+result = factorial(num)
+
+# Output
+print(f"Factorial of {num} is: {result}")
