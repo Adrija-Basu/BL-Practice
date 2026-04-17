@@ -1,0 +1,9 @@
+# Function to greet a friend
+def greet(name):
+    print(f"Hi, {name}! How are you today?")
+
+
+# Calling the function with different names
+greet("Alice")
+greet("Bob")
+greet("Charlie")
