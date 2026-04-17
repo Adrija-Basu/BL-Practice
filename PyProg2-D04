@@ -1,0 +1,28 @@
+# Function to calculate monthly car loan payment
+def calculate_car_loan_payment(P, Y, R):
+    # Convert annual interest rate to monthly
+    r = R / (12 * 100)
+    
+    # Total number of months
+    n = Y * 12
+    
+    # EMI formula
+    monthly_payment = (P * r * (1 + r) ** n) / ((1 + r) ** n - 1)
+    
+    return round(monthly_payment, 2)
+
+
+# Input values
+principal_amount = 20000
+years_to_pay_off = 5
+annual_interest_rate = 5
+
+# Function call
+monthly_payment = calculate_car_loan_payment(
+    principal_amount, 
+    years_to_pay_off, 
+    annual_interest_rate
+)
+
+# Output
+print(f"Monthly car loan payment: {monthly_payment}")
