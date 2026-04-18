@@ -1,0 +1,28 @@
+import math
+
+try:
+    A = int(input("Enter A: ").strip())
+    B = int(input("Enter B: ").strip())
+
+    count = 0
+
+    for num in range(A, B + 1):
+        if num < 2:
+            continue
+
+        is_prime = True
+
+        for i in range(2, int(math.sqrt(num)) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            count += 1
+
+    print("Prime count:", count)
+
+except KeyboardInterrupt:
+    print("\n⚠️ You stopped the input")
+except ValueError:
+    print("⚠️ Enter valid numbers only")
