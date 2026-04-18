@@ -1,0 +1,23 @@
+try:
+    balance = int(input("Enter initial balance: ").strip())
+    n = int(input("Enter number of transactions: ").strip())
+
+    for i in range(n):
+        try:
+            amount = int(input(f"Enter amount {i+1}: ").strip())
+
+            if amount % 100 == 0 and balance >= amount:
+                balance -= amount
+                print("SUCCESS")
+            else:
+                print("FAILED")
+
+        except ValueError:
+            print("FAILED (Invalid input)")
+
+    print("Final Balance:", balance)
+
+except KeyboardInterrupt:
+    print("\n⚠️ Input interrupted by user")
+except ValueError:
+    print("⚠️ Please enter valid numbers only")
