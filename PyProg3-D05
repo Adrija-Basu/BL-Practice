@@ -1,0 +1,11 @@
+import re
+
+s = input("Enter a string: ")
+
+digits = re.findall(r"\d", s)
+
+if digits:
+    print("Digits found in the string:", digits)
+else:
+    print("No digits found in the string.")
+    
