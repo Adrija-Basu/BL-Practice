@@ -1,0 +1,9 @@
+s = input("Enter string: ")
+
+first = s[0]
+middle = s[len(s)//2]
+last = s[-1]
+
+result = first + middle + last
+
+print("Output string containing first, middle and last character:", result)
