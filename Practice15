@@ -1,0 +1,10 @@
+correct_pin = input("Enter correct PIN: ")
+
+for i in range(1, 4):
+    attempt = input(f"Enter attempt {i}: ")
+
+    if attempt == correct_pin:
+        print("ACCESS GRANTED")
+        break
+else:
+    print("LOCKED")
