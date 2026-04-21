@@ -1,0 +1,13 @@
+capacity = 1000
+
+n = int(input("Enter number of minutes: "))
+inflows = list(map(int, input("Enter inflows: ").split()))
+
+total = 0
+
+for i in range(n):
+    total += inflows[i]
+
+    if total > capacity:
+        print(i + 1)
+        break
