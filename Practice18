@@ -1,0 +1,12 @@
+seats = 40
+
+n = int(input("Enter number of requests: "))
+
+for i in range(n):
+    request = int(input(f"Enter request {i+1}: "))
+
+    if request <= seats:
+        print("CONFIRMED")
+        seats -= request
+    else:
+        print("WAITLISTED")
