@@ -1,0 +1,14 @@
+n = int(input("Enter number: "))
+
+while n >= 10:
+    temp = n
+    digit_sum = 0
+
+    while temp > 0:
+        digit = temp % 10
+        digit_sum += digit
+        temp = temp // 10
+
+    n = digit_sum
+
+print(n)
