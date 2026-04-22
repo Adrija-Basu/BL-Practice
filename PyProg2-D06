@@ -1,0 +1,8 @@
+colors = ['Red', 'Green', 'Pink', 'Blue', 'Black', 'Purple', 'Yellow', 'Magenta', 'Brown']
+
+print("Colors List :", colors)
+
+# Remove 0th, 2nd and 5th index elements
+revised_colors = [colors[i] for i in range(len(colors)) if i not in [0, 2, 5]]
+
+print("List After Removing Particular Elements :", revised_colors)
