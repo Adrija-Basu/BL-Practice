@@ -1,0 +1,17 @@
+import sys
+import timeit
+
+# Create tuple and list
+numbers_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+numbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Check size
+print("Size of tuple:", sys.getsizeof(numbers_tuple), "bytes")
+print("Size of list:", sys.getsizeof(numbers_list), "bytes")
+
+# Check creation time
+tuple_time = timeit.timeit("(1,2,3,4,5,6,7,8,9,10)", number=1000000)
+list_time = timeit.timeit("[1,2,3,4,5,6,7,8,9,10]", number=1000000)
+
+print("Creation time for tuple (in seconds):", tuple_time)
+print("Creation time for list (in seconds):", list_time)
